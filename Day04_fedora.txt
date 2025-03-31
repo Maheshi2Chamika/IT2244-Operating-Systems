@@ -1,0 +1,94 @@
+//to get the path
+pwd
+[maheshi@DESKTOP-0PPO6FJ ~]$ pwd
+/home/maheshi
+
+//Display date
+date +%d
+[maheshi@DESKTOP-0PPO6FJ ~]$ date +%d
+31
+
+date +%A
+[maheshi@DESKTOP-0PPO6FJ ~]$ date +%A
+Monday
+
+date +%a
+[maheshi@DESKTOP-0PPO6FJ ~]$ date +%a
+Mon
+
+date +%B
+[maheshi@DESKTOP-0PPO6FJ ~]$ date +%B
+March
+
+date +%b
+[maheshi@DESKTOP-0PPO6FJ ~]$ date +%b
+Mar
+
+date +%Y
+[maheshi@DESKTOP-0PPO6FJ ~]$ date +%Y
+2025
+
+date +%y
+[maheshi@DESKTOP-0PPO6FJ ~]$ date +%y
+25
+
+//Display minutes
+date +%M
+[maheshi@DESKTOP-0PPO6FJ ~]$ date +%M
+37
+
+//Display hours
+date +%H
+[maheshi@DESKTOP-0PPO6FJ ~]$ date +%H
+19
+
+//Display seconds
+date +%S
+[maheshi@DESKTOP-0PPO6FJ ~]$ date +%S
+27
+
+
+
+
+
+//To get user inputs
+vi prgrm1.sh
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi prgrm1.sh
+
+echo "Who are you?"
+read name
+echo "Enter number 1"
+read x
+echo "Enter number 2"
+read y
+echo "Enter number 3"
+read z
+sum=$(($x+$y+$z))
+avg=$(($sum/3))
+echo "Hi" $name
+echo "Summation " $sum
+echo "Average   " $avg
+
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ ls
+abc.tsv  new.txt  prgrm1.sh  rows_test1.csv  test.csv  test3.csv  test4.csv
+
+
+chmod 777 prgrm1.sh
+[maheshi@DESKTOP-0PPO6FJ ~]$ chmod 777 prgrm1.sh
+
+./prgrm1.sh
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./prgrm1.sh
+Who are you?
+Wijekoon
+Enter number 1
+2
+Enter number 2
+4
+Enter number 3
+8
+Hi Wijekoon
+Summation  14
+Average    4
+
