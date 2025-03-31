@@ -1,0 +1,180 @@
+vi file28.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi file28.csv
+
+ID,Name,Age,Salary,Department
+101,Alice,30,70000,Data Science
+102,Bob,25,50000,Engineering
+103,Charlie,5,80000,Data Science
+104,David,40,90000,HR
+105,Eve,28,60000,Engineering
+106,Frank,38,75000,HR
+107,Grace,27,72000,Data Science
+108,Hank,32,68000,Engineering
+109,Ivy,29,62000,Data Science
+110,jack,31,71000,HR
+
+//To get No. of lines
+wc -l file28.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ wc -l file28.csv
+11 file28.csv
+
+
+
+//To get No. of columns
+awk -F, '{print NF;exit}' file28.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk -F, '{print NF;exit}' file28.csv
+5
+
+
+//To print third column
+awk -F, '{print $3}' file28.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk -F, '{print $3}' file28.csv
+Age
+30
+25
+5
+40
+28
+38
+27
+32
+29
+31
+
+//Another way to print third column
+cut -d, -f3 file28.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ cut -d, -f3 file28.csv
+Age
+30
+25
+5
+40
+28
+38
+27
+32
+29
+31
+
+
+//To print 7th row only
+head -n7 file28.csv|tail -n1
+[maheshi@DESKTOP-0PPO6FJ ~]$ head -n7 file28.csv|tail -n1
+106,Frank,38,75000,HR
+
+
+//To print seven lines from bottom
+tail -n7 file28.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ tail -n7 file28.csv
+104,David,40,90000,HR
+105,Eve,28,60000,Engineering
+106,Frank,38,75000,HR
+107,Grace,27,72000,Data Science
+108,Hank,32,68000,Engineering
+109,Ivy,29,62000,Data Science
+110,jack,31,71000,HR
+
+
+//To print all the data
+awk -d, '{print}' file28.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk -d, '{print}' file28.csv
+ID,Name,Age,Salary,Department
+101,Alice,30,70000,Data Science
+102,Bob,25,50000,Engineering
+103,Charlie,5,80000,Data Science
+104,David,40,90000,HR
+105,Eve,28,60000,Engineering
+106,Frank,38,75000,HR
+107,Grace,27,72000,Data Science
+108,Hank,32,68000,Engineering
+109,Ivy,29,62000,Data Science
+110,jack,31,71000,HR
+
+
+//To print second and third columns only
+awk -F, '{print $2,$3}' file28.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk -F, '{print $2,$3}' file28.csv
+Name Age
+Alice 30
+Bob 25
+Charlie 5
+David 40
+Eve 28
+Frank 38
+Grace 27
+Hank 32
+Ivy 29
+jack 31
+
+
+//To extract second and third columns into anothe text file
+awk -F, '{print $2,$3}' file28.csv >>xyz1.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk -F, '{print $2,$3}' file28.csv >>xyz1.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ ls
+,        file28.csv  prgrm1.sh       test.csv   test4.csv
+abc.tsv  new.txt     rows_test1.csv  test3.csv  xyz1.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ more xyz1.csv
+Name Age
+Alice 30
+Bob 25
+Charlie 5
+David 40
+Eve 28
+Frank 38
+Grace 27
+Hank 32
+Ivy 29
+jack 31
+
+
+//To sort the salary column only
+awk -F, '{print $4}' file28.csv | sort -r
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk -F, '{print $4}' file28.csv | sort -r
+Salary
+90000
+80000
+75000
+72000
+71000
+70000
+68000
+62000
+60000
+50000
+
+
+//Display the details according to ascending sorted salary order
+sort -t',' -k4,4n file28.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ sort -t',' -k4,4n file28.csv
+ID,Name,Age,Salary,Department
+102,Bob,25,50000,Engineering
+105,Eve,28,60000,Engineering
+109,Ivy,29,62000,Data Science
+108,Hank,32,68000,Engineering
+101,Alice,30,70000,Data Science
+110,jack,31,71000,HR
+107,Grace,27,72000,Data Science
+106,Frank,38,75000,HR
+103,Charlie,5,80000,Data Science
+104,David,40,90000,HR
+
+
+
+//Display the details according to discending sorted salary order
+sort -t',' -k4,4 -r file28.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ sort -t',' -k4,4 -r file28.csv
+ID,Name,Age,Salary,Department
+104,David,40,90000,HR
+103,Charlie,5,80000,Data Science
+106,Frank,38,75000,HR
+107,Grace,27,72000,Data Science
+110,jack,31,71000,HR
+101,Alice,30,70000,Data Science
+108,Hank,32,68000,Engineering
+109,Ivy,29,62000,Data Science
+105,Eve,28,60000,Engineering
+102,Bob,25,50000,Engineering
+
