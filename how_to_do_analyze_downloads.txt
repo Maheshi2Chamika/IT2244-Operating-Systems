@@ -1,0 +1,60 @@
+Steps to Create an Automated Batch File for Download Folder Analysis
+This batch script will:
+✅ Scan the Downloads folder (C:\Users\%USERNAME%\Downloads)
+✅ Generate a report listing file types, sizes, and last modified dates
+✅ Save the report as Downloads_Report.txt
+✅ Run automatically every 30 days using Task Scheduler
+
+Step 1: Create the Batch Script
+Open Notepad.
+
+Copy and paste the following script:
+
+batch
+Copy
+Edit
+@echo off
+setlocal enabledelayedexpansion
+
+:: Define report file
+set REPORT_FILE=%USERPROFILE%\Downloads\Downloads_Report.txt
+
+:: Clear previous report
+echo === Downloads Folder Analysis Report === > "%REPORT_FILE%"
+echo Generated on: %DATE% %TIME% >> "%REPORT_FILE%"
+echo. >> "%REPORT_FILE%"
+
+:: List files with details
+for %%F in ("%USERPROFILE%\Downloads\*.*") do (
+    echo File: %%~nxF >> "%REPORT_FILE%"
+    echo Size: %%~zF bytes >> "%REPORT_FILE%"
+    echo Last Modified: %%~tF >> "%REPORT_FILE%"
+    echo --------------------------- >> "%REPORT_FILE%"
+)
+
+echo Report generated successfully!
+exit
+Save the file as Analyze_Downloads.bat.
+
+Step 2: Test the Script
+Double-click the Analyze_Downloads.bat file to ensure it generates Downloads_Report.txt in your Downloads folder.
+
+Step 3: Schedule Auto Execution Every 30 Days
+Using Task Scheduler
+Press Win + R, type taskschd.msc, and hit Enter.
+
+Click Create Basic Task (on the right panel).
+
+Name: Download Folder Analysis
+
+Trigger: Choose Monthly → Select Repeat Every 1 Month.
+
+Action: Select Start a program.
+
+Browse: Locate and select your Analyze_Downloads.bat file.
+
+Click Finish.
+
+Now, the script will run automatically every 30 days. 🚀
+
+Would you like to add file type filtering (e.g., only list .exe, .zip, etc.)?

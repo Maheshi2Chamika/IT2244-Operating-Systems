@@ -1,0 +1,306 @@
+// Creates a file 'abc.tsv'
+touch abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ touch abc.tsv
+
+
+
+// Open the file "abc.tsv" using the "vi" text editor
+vi abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ more abc.tsv
+aa      22      33      44
+bb      11      55      66
+cc      77      88      99
+dd      12      23      34
+ee      45      56      67
+ff      78      89      90
+gg      01      14      25
+hh      36      47      58
+ii      69      93      82
+jj      71      40      73
+ll      58      88      75
+kk      55      20      37
+
+
+// Lists all files including hidden files, in the current directory
+ls -a
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ ls -a
+.   .bash_history  .bash_profile  abc.tsv  rows_test1.csv  test3.csv
+..  .bash_logout   .bashrc        new.txt  test.csv        test4.csv
+
+
+
+// Extracts the tab seperated first column
+cut -d$'\t' -f1 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ cut -d$'\t' -f1 abc.tsv
+aa
+bb
+cc
+dd
+ee
+ff
+gg
+hh
+ii
+jj
+ll
+kk
+
+
+
+// Extracts the third column using space as a delimiter
+cut -d " " -f3 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ cut -d " " -f3 abc.tsv
+aa      22      33      44
+bb      11      55      66
+cc      77      88      99
+dd      12      23      34
+ee      45      56      67
+ff      78      89      90
+gg      01      14      25
+hh      36      47      58
+ii      69      93      82
+jj      71      40      73
+ll      58      88      75
+kk      55      20      37
+
+
+
+
+// Displays the first 2 lines of abc.tsv
+head -n2 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ head -n2 abc.tsv
+aa      22      33      44
+bb      11      55      66
+
+
+
+// Displays the last 2 lines of abc.tsv
+tail -n2 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ tail -n2 abc.tsv
+ll      58      88      75
+kk      55      20      37
+
+
+// Edit the abc.tsv file, remove tabs and add spaces between values
+vi abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi abc.tsv
+[maheshi@DESKTOP-0PPO6FJ ~]$ more abc.tsv
+aa 22 33 44
+bb 11 55 66
+cc 77 88 99
+dd 12 23 34
+ee 45 56 67
+ff 78 89 90
+gg 01 14 25
+hh 36 47 58
+ii 69 93 82
+jj 71 40 73
+ll 58 88 75
+kk 55 20 37
+
+
+
+// Again Extracts the tab seperated first column
+cut -d\t -f1 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ cut -d\t -f1 abc.tsv
+aa 22 33 44
+bb 11 55 66
+cc 77 88 99
+dd 12 23 34
+ee 45 56 67
+ff 78 89 90
+gg 01 14 25
+hh 36 47 58
+ii 69 93 82
+jj 71 40 73
+ll 58 88 75
+kk 55 20 37
+
+// Again Extracts the space seperated first column
+cut -d ' ' -f1 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ cut -d ' ' -f1 abc.tsv
+aa
+bb
+cc
+dd
+ee
+ff
+gg
+hh
+ii
+jj
+ll
+kk
+
+// Display first 10 lines
+head abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ head abc.tsv
+aa 22 33 44
+bb 11 55 66
+cc 77 88 99
+dd 12 23 34
+ee 45 56 67
+ff 78 89 90
+gg 01 14 25
+hh 36 47 58
+ii 69 93 82
+jj 71 40 73
+
+
+
+// Display first 8 lines (from head)
+head -8 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ head -8 abc.tsv
+aa 22 33 44
+bb 11 55 66
+cc 77 88 99
+dd 12 23 34
+ee 45 56 67
+ff 78 89 90
+gg 01 14 25
+hh 36 47 58
+
+
+// Display last 8 lines (from head)
+tail -8 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ tail -8 abc.tsv
+ee 45 56 67
+ff 78 89 90
+gg 01 14 25
+hh 36 47 58
+ii 69 93 82
+jj 71 40 73
+ll 58 88 75
+kk 55 20 37
+
+
+// Display first line
+head -1 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ head -1 abc.tsv
+aa 22 33 44
+
+
+
+// Display last line
+tail -1 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ tail -1 abc.tsv
+kk 55 20 37
+
+
+
+// Display first 100 lines (from head)
+head -100 abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ head -100 abc.tsv
+aa 22 33 44
+bb 11 55 66
+cc 77 88 99
+dd 12 23 34
+ee 45 56 67
+ff 78 89 90
+gg 01 14 25
+hh 36 47 58
+ii 69 93 82
+jj 71 40 73
+ll 58 88 75
+kk 55 20 37
+
+
+
+// Extracts the 8th line
+head -n8 abc.tsv | tail -n1
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ head -n8 abc.tsv | tail -n1
+hh 36 47 58
+
+
+// Prints the entire file using awk
+awk '{print}' abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk '{print}' abc.tsv
+aa 22 33 44
+bb 11 55 66
+cc 77 88 99
+dd 12 23 34
+ee 45 56 67
+ff 78 89 90
+gg 01 14 25
+hh 36 47 58
+ii 69 93 82
+jj 71 40 73
+ll 58 88 75
+kk 55 20 37
+
+
+// Prints the number of columns (seperated by space)
+awk '{print NF; exit}' abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk '{print NF; exit}' abc.tsv
+4
+
+
+//Prints the number of rows
+wc -l abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ wc -l abc.tsv
+12 abc.tsv
+
+
+
+
+// Prints the number of columns (seperated by tabs)
+awk -F'\t' '{print NF; exit}' abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk -F'\t' '{print NF; exit}' abc.tsv
+1
+
+
+
+// Prints the 3rd column using awk
+awk '{print $3}' abc.tsv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk '{print $3}' abc.tsv
+33
+55
+88
+23
+56
+89
+14
+47
+93
+40
+88
+20
+
+
+
+// Extracts the first 10 lines and Search for "dd" in those first 10 lines
+head -n10 abc.tsv | grep 'dd'
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ head -n10 abc.tsv | grep 'dd'
+dd 12 23 34
+
+
+// Extracts the first 7 lines and Search for "56" in those first 10 lines
+head -n7 abc.tsv | grep '56'
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ head -n7 abc.tsv | grep '56'
+ee 45 56 67
