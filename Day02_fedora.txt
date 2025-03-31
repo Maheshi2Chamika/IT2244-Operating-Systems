@@ -1,0 +1,112 @@
+// Create 'test.csv' in the 'vi' text editor
+vi test.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi test.csv
+
+// Displays the contents of new.txt one page at a time
+more test.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ more test.csv
+aa,12,13,14
+bb,23,24,25
+cc,34,35,36
+dd,45,46,47
+ee,56,57,58
+
+// Allows scrolling up and down
+less test.csv
+
+// Extracts the 1st and 3rd columns, using ',' as the delimiter
+cut -d, -f1,3 test.csv 
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ cut -d, -f1,3 test.csv
+aa,13
+bb,24
+cc,35
+dd,46
+ee,57
+
+// Extract only the 2nd field
+cut -d, -f2 test.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ cut -d, -f2 test.csv
+12
+23
+34
+45
+56
+
+//Displays the first 3 rows of the file test.csv
+head -3 test.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ head -3 test.csv
+aa,12,13,14
+bb,23,24,25
+cc,34,35,36
+
+// Displays the last 3 lines of 'test.csv'
+tail -3 test.csv 
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ tail -3 test.csv
+cc,34,35,36
+dd,45,46,47
+ee,56,57,58
+
+// Extracts the 1st and 2nd columns from 'test.csv' and saves them in 'test4.csv'
+cut -d, -f1,2 test.csv > test4.csv 
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ cut -d, -f1,2 test.csv > test4.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ ls
+new.txt  test.csv  test3.csv  test4.csv
+
+
+// Counts the number of lines in 'test4.csv'
+wc -l test4.csv 
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ wc -l test4.csv
+5 test4.csv
+
+// Extracts the first 3 rows from test.csv and appends (>>) them to rows_test1.csv
+head -3 test.csv >> rows_test1.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ head -3 test.csv >> rows_test1.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ ls
+new.txt  rows_test1.csv  test.csv  test3.csv  test4.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ more rows_test1.csv
+aa,12,13,14
+bb,23,24,25
+cc,34,35,36
+
+// Prints the first column of 'test.csv', using ',' as the delimiter
+awk -F, '{print$1}' test.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ awk -F, '{print$1}' test.csv
+aa
+bb
+cc
+dd
+ee
+
+//Set read-only (r--r--r--) permission for everyone on 'test4.csv'
+chmod 444 test4.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ chmod 444 test4.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ ls -ltr
+total 16
+-r--r--r-- 1 maheshi maheshi  0 Mar 25 13:55 new.txt
+-rw-r--r-- 1 maheshi maheshi 38 Mar 31 11:49 test3.csv
+-rw-r--r-- 1 maheshi maheshi 60 Mar 31 11:54 test.csv
+-r--r--r-- 1 maheshi maheshi 30 Mar 31 12:05 test4.csv
+-rw-r--r-- 1 maheshi maheshi 36 Mar 31 12:10 rows_test1.csv
+
+// Grants the owner full permissions (rwx), while others have read-only access (r--r--) 
+chmod 744 test4.csv
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ chmod 744 test4.csv
+[maheshi@DESKTOP-0PPO6FJ ~]$ ls -ltr
+total 16
+-r--r--r-- 1 maheshi maheshi  0 Mar 25 13:55 new.txt
+-rw-r--r-- 1 maheshi maheshi 38 Mar 31 11:49 test3.csv
+-rw-r--r-- 1 maheshi maheshi 60 Mar 31 11:54 test.csv
+-rwxr--r-- 1 maheshi maheshi 30 Mar 31 12:05 test4.csv
+-rw-r--r-- 1 maheshi maheshi 36 Mar 31 12:10 rows_test1.csv
