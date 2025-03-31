@@ -1,4 +1,3 @@
-# IT2244-Ope![Uploading 02.png…]()
-![01](https://github.com/user-attachments/assets/62e0a1c4-30f6-48c4-a97b-2ec5e2028387)
-![03](https://github.com/user-attachments/assets/0dccb90b-1516-486e-95c5-f14db8ebd3fc)
-rating-Systems
+![02](https://github.com/user-attachments/assets/701f5ad4-cc5d-44ed-b8b6-e51b876a927d)
+![01](https://github.com/user-attachments/assets/1f24f2bd-bf85-4d01-9e3e-d5d3ad3ea764)
+![03](https://github.com/user-attachments/assets/90599396-ddec-41ec-94ad-b7efba93ede1)
