@@ -1,0 +1,285 @@
+Q1)Write a code for small astrology based on your life path number for that get date of birth from user then calculate life path number.(use switch case)
+Example:-
+	Date: 23
+	
+	calculation for life path number
+				a=date%10    3
+				b=date/10    2
+				c=a+based    5
+	  
+	If life path number:
+		1:Lucky
+		2:Carefully do ypour work
+		3:Storger
+		4:Happy
+		5:Can get help
+		6:Doubt
+		7:Sad
+		8:Like
+		9:Courage
+		
+**************************************************			
+echo "Enter your date of birth (DD):"
+read date
+a=$((date % 10))
+b=$((date / 10))
+c=$((a + b))
+if [ $c -ge 10 ]; then
+    c=$((c % 10 + c / 10))
+fi
+echo "Your Life Path Number is: $c"
+case $c in
+    1) echo "Astrology Insight: Lucky" ;;
+    2) echo "Astrology Insight: Carefully do your work" ;;
+    3) echo "Astrology Insight: Stronger" ;;
+    4) echo "Astrology Insight: Happy" ;;
+    5) echo "Astrology Insight: Can get help" ;;
+    6) echo "Astrology Insight: Doubt" ;;
+    7) echo "Astrology Insight: Sad" ;;
+    8) echo "Astrology Insight: Like" ;;
+    9) echo "Astrology Insight: Courage" ;;
+    *) echo "Astrology Insight: Unknown" ;;
+esac
+
+**************************************************
+Answer:-
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi astrology.txt
+[maheshi@DESKTOP-0PPO6FJ ~]$ chmod 777 astrology.txt
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./astrology.txt
+Enter your date of birth (DD):
+12
+Your Life Path Number is: 3
+Astrology Insight: Stronger
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./astrology.txt
+Enter your date of birth (DD):
+29
+Your Life Path Number is: 2
+Astrology Insight: Carefully do your work
+
+
+
+
+
+
+
+Q2)Give list of numbers then calculate the summation and multiplication using for loop.
+	Example:-
+	  1 2 3 4 5
+		summation = 15
+		multiplication = 120
+		
+**************************************************
+echo "Enter a list of numbers separated by spaces:"
+read -a numbers
+sum=0
+mul=1
+for num in "${numbers[@]}";
+do
+    sum=$((sum + num))
+    mul=$((mul * num))
+done
+echo "Summation = $sum"
+echo "Multiplication = $mul"
+
+**************************************************
+Answer:-
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi summation.txt
+[maheshi@DESKTOP-0PPO6FJ ~]$ chmod 777 summation.txt
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./summation.txt
+Enter a list of numbers separated by spaces:
+4 5
+Summation = 9
+Multiplication = 20
+
+
+
+
+Q3)Print the integers from 1 to 10 using while loop
+**************************************************
+let i=1
+while [ $i -le 10 ];
+do
+	echo $i;
+	i=$(($i+1))
+done
+
+**************************************************
+Answer:-
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi whileloop.txt
+[maheshi@DESKTOP-0PPO6FJ ~]$ chmod 777 whileloop.txt
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./whileloop.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+
+
+
+Q4)Print below patterns using nested loop columns = 7 , rows = 7
+
+i)	*
+	* *
+	* * *
+	* * * *
+	* * * * *
+	* * * * * *
+	* * * * * * *
+
+
+
+ii)	* * * * * * *
+	* * * * * *
+	* * * * *
+	* * * *
+	* * *
+	* *
+	*
+
+
+iii) 1
+	 2 2
+	 3 3 3
+	 4 4 4 4
+	 5 5 5 5 5
+	 6 6 6 6 6 6
+	 
+	 
+iv) 1
+	1 2
+	1 2 3 
+	1 2 3 4 
+	1 2 3 4 5
+	1 2 3 4 5 6
+	
+	
+v)       *
+        * *
+	   * * *	
+	  * * * *
+	 * * * * *
+
+#############################################################################
+
+for((i=1; i<=7;i++))
+do
+	for((j=0; j<i; j++))
+	do
+		echo -n "*"
+	done
+	echo""
+done
+
+
+echo""
+echo""
+
+
+for((i=1;i<=7;i++))
+do
+	for((j=7;j>i;j--))
+	do
+		echo -n "*"
+	done
+	echo ""
+done
+
+
+
+echo""
+echo""
+
+for ((i=1; i<=6; i++))
+do
+   for ((j=1; j<=i; j++))
+   do
+     echo -n "$i "
+   done
+   echo ""
+done
+
+
+
+echo""
+echo""
+
+for ((i=1; i<=7; i++))
+do
+   for ((j=1; j<=i; j++))
+   do
+     echo -n "$j "
+   done
+   echo ""
+done
+
+
+
+echo""
+echo""
+
+rows=5
+for ((i=1; i<=rows; i++))
+do
+   for ((j=i; j<rows; j++))
+   do
+     echo -n " "
+   done
+   for ((k=1; k<=i; k++))
+   do
+     echo -n "* "
+   done
+   echo ""
+done
+
+#############################################################################
+Answer:-
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi stars.sh
+[maheshi@DESKTOP-0PPO6FJ ~]$ chmod 777 stars.sh
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./stars.sh
+*
+**
+***
+****
+*****
+******
+*******
+
+
+******
+*****
+****
+***
+**
+*
+
+
+
+1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5
+6 6 6 6 6 6
+
+
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+1 2 3 4 5 6
+1 2 3 4 5 6 7
+
+
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
