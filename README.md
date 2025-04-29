@@ -1,5 +1,4 @@
 # IT2244-Operating-Systems
-
 Commands & Examples
 
 1. pwd
