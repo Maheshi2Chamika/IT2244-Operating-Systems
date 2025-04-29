@@ -85,3 +85,10 @@ Commands & Examples
       - ./prgrm1.sh
     Purpose: Runs the script `prgrm1.sh` that prompts the user for input and performs calculations.
 
+
+14. ./prgrm1.sh
+    Description: Executes the `prgrm1.sh` script.
+    Usage:
+      - ./prgrm1.sh
+    Purpose: Runs the script `prgrm1.sh` that prompts the user for input and performs calculations.
+
