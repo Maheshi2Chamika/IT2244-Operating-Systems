@@ -1,0 +1,54 @@
+Read three numbers (a,b,c) from the users and store then into three variables.Find the Least Common Multiple (LCM) from the first two numbers(a,b) and find the Greatest Common Deviser(GCD)
+for the second two numbers(b,c) 
+
+*********************************************************************
+echo "Enter the first number(a): "
+read a
+echo "Enter the second number(b): "
+read b
+echo "Enter the third number(c): "
+read c
+
+gcd() {
+    local x=$1
+    local y=$2
+    while [ $y -ne 0 ]; 
+	do
+        temp=$y
+        y=$((x % y))
+        x=$temp
+    done
+    echo $x
+}
+
+lcm() {
+    local x=$1
+    local y=$2
+    echo $((x * y / $(gcd $x $y)))
+}
+
+# Calculate LCM of a and b
+lcm_ab=$(lcm $a $b)
+
+# Calculate GCD of b and c
+gcd_bc=$(gcd $b $c)
+
+# Display results
+echo "LCM of $a and $b: $lcm_ab"
+echo "GCD of $b and $c: $gcd_bc"
+
+*********************************************************************
+Answer:-
+[2021ict79@fedora ~]$ vi gcd.sh
+[2021ict79@fedora ~]$ chmod 777 gcd.sh
+[2021ict79@fedora ~]$ ./Q1_79.sh
+Enter the first number(a):
+2
+Enter the second number(b):
+4
+Enter the third number(c):
+8
+LCM of 2 and 4: 4
+GCD of 4 and 8: 4
+
+GCD of 4 and 8: 4
