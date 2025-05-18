@@ -1,0 +1,365 @@
+(Q1)Print Hello wORLD
+
+#include<stdio.h>                //input output functionalities
+int main(){
+	printf("Hello World!\n");
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc first.c -o first
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./first
+Hello World!
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+
+
+
+(Q2)Variables
+
+%d / %i    integers
+%f / %F    float
+%lf        double
+%e         char
+%s         strings
+
+
+int age;                        //store integer values
+age=25;
+int age = 25;
+
+************************************************************
+
+#include<stdio.h>
+int main(){
+	int age=25;
+	printf("%d",age);
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+25[maheshi@DESKTOP-0PPO6FJ ~]$
+************************************************************
+
+//Assign new value for same variable
+
+#include<stdio.h>
+int main(){
+	int age=25;
+	printf("%d",age);
+
+	printf("\nc programming");
+
+	age=31;
+	printf("\nNew age:%d",age);
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+25
+c programming
+New age:31[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+************************************************************
+
+//Assign same value for two variables
+
+#include<stdio.h>
+int main(){
+	int firstNumber=25;
+	printf("first number:%d",firstNumber);
+	
+	int secondNumber=firstNumber;
+	printf("\nsecond number:%d",secondNumber);
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+first number:25
+second number:25[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+
+
+
+
+
+(Q3)Declare multiple variables in single line
+
+
+#include<stdio.h>
+int main(){
+	int a=25, b=10;
+	printf("%d",a);
+	printf("\n%d",b);
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+25
+10[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+
+
+
+
+(Q4)Data types
+
+#include<stdio.h>
+int main(){
+	int age=10;
+	printf("%d",age);
+	printf("size: %zu",sizeof(age));
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+10size: 4[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+//Print  a double number
+
+#include<stdio.h>
+int main(){
+	double number=12.45;
+	printf("%lf",number);
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+12.450000[maheshi@DESKTOP-0PPO6FJ ~]$
+
+//To get only two decimal numbers
+
+#include<stdio.h>
+int main(){
+	double number=12.45;
+	printf("%.2lf",number);
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+12.45[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+//To print floating number
+
+#include<stdio.h>
+int main(){
+	float number=10.9f;
+	printf("%f",number);
+	printf("\n%.1f",number);
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+10.900000
+10.9[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+//To print a character
+
+#include<stdio.h>
+int main(){
+	char character='z';
+	printf("%c",character);
+	printf("\n%d",character);
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+z
+122[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+
+(Q5)Take input from users
+
+#include<stdio.h>
+int main(){
+	int age;
+	printf("Enter your age: ");
+	scanf("%d", &age);
+	
+	printf("Age=%d",age);
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+Enter your age: 24
+Age=24[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+(Q6)Take multiple inputs together
+
+#include<stdio.h>
+int main(){
+	double number;
+	char alpha;
+	printf("Enter inputs:");
+	scanf("%lf %c", &number, &alpha);
+return 0;
+}
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi variables.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc variables.c -o variables
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./variables
+Enter inputs:12.65 a
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+(Q7)
+
+//      Single line comments     ctrl+/
+/* */   Multiple comments        ctrl+shift+/
+
+
+(Q8)Arithmetic operators
+
+
+
+#include <stdio.h>
+
+double calculate(double num1, double num2, char operator1) {
+    switch (operator1) {
+        case '+': return num1 + num2;
+        case '-': return num1 - num2;
+        case '*': return num1 * num2;
+        case '/':
+            if (num2 == 0) {
+                printf("\nError: Division by zero is not allowed!\n");
+                return 0;
+            }
+            return num1 / num2;
+        default:
+            printf("\nError: Invalid operator. Use +, -, *, or /\n");
+            return 0;
+    }
+}
+
+int main() {
+    char operator1, choice;
+    double num1, num2, result;
+
+    printf("===== Simple Calculator =====\n");
+
+    do {
+
+        printf("\nEnter the first number: ");
+        if (scanf("%lf", &num1) != 1) {
+            printf("\nError: Invalid input. Please enter a valid number.\n");
+            return 1;
+        }
+
+
+        printf("Enter an operator (+, -, *, /): ");
+        scanf(" %c", &operator1);
+
+        printf("Enter the second number: ");
+        if (scanf("%lf", &num2) != 1) {
+            printf("\nError: Invalid input. Please enter a valid number.\n");
+            return 1;
+        }
+
+
+        result = calculate(num1, num2, operator1);
+        printf("\nResult: %.2lf\n", result);
+
+
+        printf("\nDo you want to perform another calculation? (y/n): ");
+        scanf(" %c", &choice);
+
+    } while (choice == 'y' || choice == 'Y');
+
+    printf("\nThank you for using the calculator! Goodbye.\n");
+
+    return 0;
+}
+
+
+************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi calculator.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc calculator.c -o calculator
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./calculator
+===== Simple Calculator =====
+
+Enter the first number: 10
+Enter an operator (+, -, *, /): +2
+Enter the second number:
+Result: 12.00
+
+Do you want to perform another calculation? (y/n): n
+
+Thank you for using the calculator! Goodbye.
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+
+
+
+
+
+
+
+
+
