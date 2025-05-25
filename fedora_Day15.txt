@@ -1,0 +1,168 @@
+//child process
+
+#include<stdio.h>
+#include<unistd.h>
+int main(){
+	printf("\n Hello World");
+	int f=fork();
+	int p=getpid();
+	printf("\n the pid is %d",p);
+	printf("\n the pid is %d\n",f);
+	
+	return 0;
+}
+
+************************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi child.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc child.c -o child
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./child
+
+ Hello World
+ the pid is 47
+ the pid is 48
+ Hello World
+ the pid is 48
+ the pid is 0
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+
+
+#include<stdio.h>
+#include<unistd.h>
+int main(){
+	printf("\n Hello World");
+	int f=fork();
+	int p=getpid();
+	printf("\n Hey I'm Parent process,My pid is %d",p);
+	printf("\n Hey I'm child process,My pid is %d\n",f);
+	
+	return 0;
+}
+
+
+************************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi child.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc child.c -o child
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./child
+
+ Hello World
+ Hey I'm Parent process,My pid is 55
+ Hey I'm child process,My pid is 56
+ Hello World
+ Hey I'm Parent process,My pid is 56
+ Hey I'm child process,My pid is 0
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+----------------------------------------------------------------------------------------
+#include<stdio.h>
+#include<unistd.h>
+int main(){
+	int f=fork();
+	printf("Hello World!\n");
+	if(f==0)
+	{
+		printf(" I am Child\n");
+	}
+	else
+	{
+		printf(" I am parent\n");
+	}
+	
+	return 0;
+}
+
+************************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi child.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc child.c -o child
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./child
+Hello World!
+ I am parent
+Hello World!
+ I am Child
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+---------------------------------------------------------------------------------------------
+#include<stdio.h>
+#include<unistd.h>
+int main(){
+	int f=fork();
+	
+	if(f==0){
+		printf("I am Child\n");
+		printf("My Parent ID is %d\n",getpid());
+		int f1=fork();
+		
+	 if(f1==0){
+		printf("I am Sibiling\n");
+		printf("My Parent ID is %d\n",getpid());
+		}
+	}
+	else{
+		printf("I am Parent\n");
+		printf("My Parent ID %d\n",getpid());
+	}
+
+}
+
+************************************************************************
+
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi child.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc child.c -o child
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./child
+I am Parent
+My Parent ID 71
+I am Child
+My Parent ID is 72
+I am Sibiling
+My Parent ID is 73
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+------------------------------------------------------------------------------------------------------
+#include<stdio.h>
+#include<unistd.h>
+int main(){
+	int f=fork();
+	if(f==0){
+		printf("I am Child\n");
+		printf("My Parent ID is %d\n",getppid());
+	}
+	else{
+		int f1=fork();
+		if(f1==0){
+		printf("I am Sibiling\n");
+		printf("My Parent ID is %d\n",getppid());
+		}
+		else{
+			
+			printf("I am Parent\n");
+			printf("My  ID %d\n",getpid());
+		printf("My Parent ID %d\n",getppid());
+		}
+	}
+}
+
+
+************************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi child.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc child.c -o child
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./child
+I am Child
+I am Parent
+My Parent ID is 80
+I am Sibiling
+My Parent ID is 80
+My  ID 80
+My Parent ID 11
+[maheshi@DESKTOP-0PPO6FJ ~]$
