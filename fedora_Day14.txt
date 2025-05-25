@@ -1,0 +1,427 @@
+(Q1)Enter your age and verify your aligibility or not elibility for election voting
+
+#include<stdio.h>
+int main(){
+	int age;
+	printf("Enter your age: ");
+	scanf("%d", &age);
+	if(age>18){
+		printf("You are eligible for voting\n");
+	}
+	else{
+		printf("You are eligible for voting\n");
+	}
+return 0;
+} 
+
+******************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi voting.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc voting.c -o voting
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./voting
+Enter your age: 24
+You are eligible for voting
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+
+
+(Q2)Ternary Operator
+test condition ? expression1 : expression2;
+
+#include<stdio.h>
+int main(){
+	int age;
+	printf("Enter your age: ");
+	scanf("%d", &age);
+	age>=18 ? printf("You are eligible for voting\n") : printf("You are eligible for voting\n");
+return 0;
+} 
+
+******************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi voting.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc voting.c -o voting
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./voting
+Enter your age: 24
+You are eligible for voting
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+(Q3)Switch case ====> Enter the value between 1 to 7 and create a program for following output:
+Enter the number between 1 to 7 : 1
+Monday!
+
+#include <stdio.h>
+int main() {
+	int day;
+	printf("Enter the number between 1 to 7: ");
+	scanf("%d", &day);
+	
+	switch (day) {
+	
+	case 1:
+	printf("Monday");
+	break;
+	
+	case 2:
+	printf("Tuesday");
+	break;
+	
+	case 3:
+	printf("Wednesday");
+	break;
+	
+	case 4:
+	printf("Thursday");
+	break;
+	
+	case 5:
+	printf("Friday");
+	break;
+	
+	case 6:
+	printf("Saturday");
+	break;
+	
+	case 7:
+	printf("Sunday");
+	break;
+	
+	default:
+	printf("Invalid day");
+	}
+return 0;
+}
+
+******************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi switch.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc switch.c -o switch
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./switch
+Enter the number between 1 to 7: 5
+Friday[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+(Q3)Write a code for small astrology based on your life path number for that get date of birth  from user then calculate life path number.(use switch case)
+Example:-
+	Date: 23
+	
+	calculation for life path number
+				a=date%10    3
+				b=date/10    2
+				c=a+based    5
+	  
+	If life path number:
+		1:Lucky
+		2:Carefully do ypour work
+		3:Storger
+		4:Happy
+		5:Can get help
+		6:Doubt
+		7:Sad
+		8:Like
+		9:Courage
+		
+*******************************************************************************
+	
+#include <stdio.h>
+int main() {
+    int date, a, b, c;
+
+    printf("Enter your date of birth (DD): ");
+    scanf("%d", &date);
+
+    a = date % 10;
+    b = date / 10;
+    c = a + b;
+
+    if (c >= 10) {
+        c = (c % 10) + (c / 10);
+    }
+
+    printf("Your Life Path Number is: %d\n", c);
+    switch (c) {
+        case 1: printf("Astrology Insight: Lucky\n"); break;
+        case 2: printf("Astrology Insight: Carefully do your work\n"); break;
+        case 3: printf("Astrology Insight: Stronger\n"); break;
+        case 4: printf("Astrology Insight: Happy\n"); break;
+        case 5: printf("Astrology Insight: Can get help\n"); break;
+        case 6: printf("Astrology Insight: Doubt\n"); break;
+        case 7: printf("Astrology Insight: Sad\n"); break;
+        case 8: printf("Astrology Insight: Like\n"); break;
+        case 9: printf("Astrology Insight: Courage\n"); break;
+        default: printf("Astrology Insight: Unknown\n"); break;
+    }
+
+    return 0;
+}
+
+*******************************************************************************
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi switch.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc switch.c -o switch
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./switch
+Enter your date of birth (DD): 29
+Your Life Path Number is: 2
+Astrology Insight: Carefully do your work
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+(Q5)Print the integers from 1 to 5 using while loop
+
+
+#include <stdio.h>
+int main() {
+
+    int i = 1;
+    while (i <= 5) {
+        printf("%d\n", i);
+        i++;
+    }
+
+    return 0;
+}
+
+*******************************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi while.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc while.c -o while
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./while
+1
+2
+3
+4
+5
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+
+
+(Q6)Write a c program to generate and print the Fibonacci series up to a specified number of terms.
+The program should take the number of terms as input from the user and then 
+display the corresponding Fibonacci sequence
+
+
+#include <stdio.h>
+int main() {
+    int n, a = 0, b = 1, next = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci series up to %d:\n", n);
+
+    while (a <= n) {
+        printf("%d ", a);
+        next = a + b;
+        a = b;
+        b = next;
+    }
+
+    return 0;
+}
+
+****************************************************************************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi fibonacci.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc fibonacci.c -o fibonacci
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./fibonacci
+Enter a number: 5
+Fibonacci series up to 5:
+0 1 1 2 3 5 [maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+
+
+(Q7)Write a c program to calculate the factorial of a given non-negative integer.
+
+#include <stdio.h>
+int main(){
+    int number;
+    int factorial = 1;
+    printf("\nEnter a positive number: ");
+    scanf("%d", &number);
+
+    if(number > 0){
+        for(int a = 1; a <= number; a++){
+            factorial = factorial * a;
+        } 
+
+        printf("Factorial of %d is %d \n", number, factorial);
+
+    } else {
+        printf("\nEntered number is negative\n");
+    }
+     
+    return 0;
+}
+
+*************************************************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi factorial.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc factorial.c -o factorial
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./factorial
+
+Enter a positive number: 6
+Factorial of 6 is 720
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+(Q8)Write a c program that takes a binary number (as an integer) as input and converts it to its decimal equivalent.
+
+#include <stdio.h>
+int main() {
+    int binary, decimal = 0, base = 1, remainder;
+
+    printf("Enter a binary number: ");
+    scanf("%d", &binary);
+
+    while (binary > 0) {
+        remainder = binary % 10;  // Extract the last digit
+        decimal += remainder * base;  // Convert and add to decimal
+        binary /= 10;  // Remove the last digit
+        base *= 2;  // Update base (powers of 2)
+    }
+
+    printf("Decimal equivalent: %d\n", decimal);
+
+    return 0;
+}
+
+********************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi binary.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc binary.c -o binary
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./binary
+Enter a binary number: 1110
+Decimal equivalent: 14
+[maheshi@DESKTOP-0PPO6FJ ~]$
+
+
+
+
+
+
+
+(Q9)Write a c program that:
+Accepts an array of integers from the user.
+Finds and displays the maximum and minimum values in the array
+
+
+#include <stdio.h>
+int main() {
+    int n, i, max, min;
+    
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n]; // Declare array with user-defined size
+
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++) 
+	{
+        scanf("%d", &arr[i]);
+    }
+
+    max = min = arr[0]; // Initialize max and min with the first element
+
+    for(i = 1; i < n; i++) 
+	{
+        if(arr[i] > max) 
+		{
+            max = arr[i]; 
+        }
+        if(arr[i] < min) 
+		{
+            min = arr[i];
+        }
+    }
+
+    printf("Maximum value: %d\n", max);
+    printf("Minimum value: %d\n", min);
+
+    return 0;
+}
+
+**********************************************************************
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi array.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc array.c -o array
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./array
+Enter the number of elements: 5
+Enter 5 elements:
+2
+3
+8
+6
+10
+Maximum value: 10
+Minimum value: 2
+
+
+
+
+
+(Q10)c program to generate Pascal's Triangle
+
+Output:
+no of rows =5
+          1
+        1   1
+      1   2   1
+    1   3   3   1
+  1   4   6   4   1
+
+
+#include <stdio.h>
+int main() {
+    int rows, coef = 1, space, i, j;
+    
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
+    
+    for (i = 0; i < rows; i++) 
+	{
+        for (space = 1; space <= rows - i; space++)
+            printf("  ");
+        
+        for (j = 0; j <= i; j++) 
+		{
+            if (j == 0 || i == 0)
+                coef = 1;
+            else
+                coef = coef * (i - j + 1) / j;
+            
+            printf("%4d", coef);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+
+**********************************************************************
+
+
+[maheshi@DESKTOP-0PPO6FJ ~]$ vi pascal.c
+[maheshi@DESKTOP-0PPO6FJ ~]$ gcc pascal.c -o pascal
+[maheshi@DESKTOP-0PPO6FJ ~]$ ./pascal
+Enter number of rows: 5
+             1
+           1   1
+         1   2   1
+       1   3   3   1
+     1   4   6   4   1
+[maheshi@DESKTOP-0PPO6FJ ~]$
